@@ -91,6 +91,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument('-y', '--year', type=int, default=date.today().year, help='Year to filter the habit dates for (default is current year).')
     parser.add_argument('-e', '--emoji', type=str, default=DEFAULT_EMOJI, help='Emoji or character to represent completed habits (default is ✅).')
     parser.add_argument('-w', '--weekly', action='store_true', help='Use the weekly habit tracking template.')
+    parser.add_argument('-o', '--output', type=str, help='Path to save the generated markdown file (if not specified, output will be printed to stdout).')
 
     return parser.parse_args()
 
@@ -107,5 +108,11 @@ if __name__ == '__main__':
     else:
         markdown_output = generate_monthly_habit_markdown(dates, args.year, args.emoji)
 
-    # Output the markdown to the console
-    print(markdown_output)
+    if args.output:
+        # Save the markdown output to the given path
+        output_path = Path(args.output)
+        with output_path.open('w') as file:
+            file.write(markdown_output)
+    else:
+        # Output the markdown to the console
+        print(markdown_output)

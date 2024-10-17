@@ -50,26 +50,27 @@ This Python script generates a markdown table to track daily habit completions, 
 | `-y`, `--year`        | Year to filter the habit dates (default: current year).                  |
 | `-e`, `--emoji`       | Emoji or character to represent completed habits (default: ✅).          |
 | `-w`, `--weekly`      | Use the weekly habit tracking template instead of the monthly template.  |
+| `-o`, `--output`      | Path to save the generated markdown file (default is to print to stdout).|
 
 ## Examples
 
-### Generate Monthly Habit Markdown for 2022
+#### Generate Monthly Habit Markdown for 2022 and Save to File
 ```bash
-python3 habits.py habits.yaml -y 2022
+python3 habits.py habits.yaml -y 2022 -o monthly_habits.md
 ```
-This will generate a markdown table for the year 2022, using the monthly format with default ✅ markers.
+This will generate a markdown table for the year 2022 in monthly view and save it to `monthly_habits.md`.
 
-### Generate Weekly Habit Markdown with Custom Emoji
+#### Generate Weekly Habit Markdown with Custom Emoji
 ```bash
-python3 habits.py habits.yaml -w -y 2021 -e 🔥
+python3 habits.py habits.yaml -w -y 2024 -e 🔥 -o weekly_habits.md
 ```
-This will generate a markdown table for weekly tracking in 2021, using 🔥 as the marker for completed habits.
+This will generate a markdown table for weekly tracking in 2024, using 🔥 as the marker for completed habits and save it to `weekly_habits.md`.
 
-### Custom Year with Weekly Format
+#### Custom Year with Weekly Format and Default Emoji
 ```bash
-python3 habits.py habits.yaml -w -y 2023
+python3 habits.py habits.yaml -w -y 2023 -o my_habits.md
 ```
-Generates a weekly habit table for the year 2023 with default markers.
+Generates a weekly habit table for the year 2023 and saves it to `my_habits.md`.
 
 ## Output
 
