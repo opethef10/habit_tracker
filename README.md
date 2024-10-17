@@ -74,7 +74,7 @@ Generates a weekly habit table for the year 2023 and saves it to `my_habits.md`.
 
 ## Output
 
-The script generates markdown tables like these:
+The script generates markdown tables like these. First version is how it is saved in a Markdown file and the second one is how the output will look in GitHub, a markdown viewer, or when converted to an HTML file:
 
 ### Monthly View Example:
 ```markdown
