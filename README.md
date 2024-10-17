@@ -50,6 +50,7 @@ This Python script generates a markdown table to track daily habit completions, 
 | `-y`, `--year`        | Year to filter the habit dates (default: current year).                  |
 | `-e`, `--emoji`       | Emoji or character to represent completed habits (default: ✅).          |
 | `-w`, `--weekly`      | Use the weekly habit tracking template instead of the monthly template.  |
+| `-j`, `--japanese`      | Use Japanese kanji for the days of the week (For weekly template only) |
 | `-o`, `--output`      | Path to save the generated markdown file (default is to print to stdout).|
 
 ## Examples
@@ -92,6 +93,18 @@ The script generates markdown tables like these. First version is how it is save
 | 3  | ✅  |     |     |     |     |     |     |     |     |     |     |     |
 
 ### Weekly View Example:
+```markdown
+| 2024 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 01/01 |     |     | ✅  |     |     |     |     |
+| 08/01 |     |     |     |     |     |     |     |
+...
+```
+| 2024 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 01/01 |     |     | ✅  |     |     |     |     |
+| 08/01 |     |     |     |     |     |     |     |
+### Weekly View Example with Japanese Kanji:
 ```markdown
 | 2024 | 月   | 火   | 水   | 木   | 金   | 土   | 日   |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

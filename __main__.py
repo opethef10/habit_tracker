@@ -49,7 +49,10 @@ def generate_weekly_habit_markdown(dates: list[date], year: int, emoji: str) -> 
     """Generate markdown for weekly template"""
 
     # Initialize the weekly template header
-    table = f'| {year} | 月   | 火   | 水   | 木   | 金   | 土   | 日   |\n'
+    if args.japanese:
+        table = f'| {year} | 月   | 火   | 水   | 木   | 金   | 土   | 日   |\n'
+    else:
+        table = f'| {year} | Mon | Tue | Wed | Thu | Fri | Sat | Sun |\n'
     table += '|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n'
     
     # Get the first date of the year and adjust to first Monday
@@ -91,6 +94,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument('-y', '--year', type=int, default=date.today().year, help='Year to filter the habit dates for (default is current year).')
     parser.add_argument('-e', '--emoji', type=str, default=DEFAULT_EMOJI, help='Emoji or character to represent completed habits (default is ✅).')
     parser.add_argument('-w', '--weekly', action='store_true', help='Use the weekly habit tracking template.')
+    parser.add_argument('-j', '--japanese', action='store_true', help='Use Japanese kanji for the days of the week')
     parser.add_argument('-o', '--output', type=str, help='Path to save the generated markdown file (if not specified, output will be printed to stdout).')
 
     return parser.parse_args()
