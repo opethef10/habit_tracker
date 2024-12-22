@@ -44,6 +44,18 @@ def generate_monthly_habit_markdown(dates: list[date], year: int, emoji: str) ->
     for row in rows:
         table += '|'.join(row) + '|\n'
 
+    # Add the total row
+    total_row = ""
+    total_of_totals = 0
+    for month in range(12):
+        # Count emojis for the month
+        total = sum(1 for row in rows if row[month + 1].strip() == emoji)
+        total_row += f"| **{total}** "
+        total_of_totals += total
+
+    total_row += "|"
+    table += f"| **Σ: {total_of_totals}**" + total_row + '\n'
+
     return table
 
 
